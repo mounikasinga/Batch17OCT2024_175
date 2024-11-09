@@ -1,0 +1,34 @@
+Git commands
+1. Initialize a Repository
+   git init
+2. Clone a Repository
+   git clone <repository_url>
+3. Check Repository Status
+   git status
+4.Add Files to Staging
+   git add <file_name>   # Add a specific file
+   git add .             # Add all files in the current directory
+5. Commit Changes
+   git commit -m "Commit message"
+6. Push Changes to GitHub
+   git push origin <branch_name>
+7. Pull Changes from GitHub
+   git pull origin <branch_name>
+8. View Commit History
+   git log
+9. Create a New Branch
+   git branch <new_branch_name>
+10. Switch to a Branch
+    git checkout <branch_name>
+11. Merge Branches
+    git merge <branch_name>
+12. Delete a Branch
+    git branch -d <branch_name>
+13. Set Upstream for a Branch
+    git push --set-upstream origin <branch_name>
+14.Undo the Last Commit (if not pushed)
+    git reset --soft HEAD~1  # Keep changes
+    git reset --hard HEAD~1  # Discard changes
+15.Configure GitHub Username and Email
+    git config --global user.name "Your Name"
+    git config --global user.email "your.email@example.com"
