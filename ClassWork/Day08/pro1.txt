@@ -1,0 +1,19 @@
+  1 /* unformmated i/o
+  2 getc ,putc -->read/write single char-->stream
+  3 getchar ,putchar -->read/write single char -->std i/o
+  4 gets , puts -->read/write for a string -->stream
+  5 getch() -->dos flatform -->not echo read char to the screen
+  6 */
+  7 #include<stdio.h>
+  8 int main(){
+  9 char ch;
+ 10 /*printf("\n enter a character: ");
+ 11 ch=getchar();
+ 12 printf("\n read char : ");
+ 13 putchar(ch);
+ 14 putchar('A');
+ 15 putchar(65);
+ 16 */
+ 17 ch=getc(stdin);
+ 18 putc(ch,stdout);
+ 19 }

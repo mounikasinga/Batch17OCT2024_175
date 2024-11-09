@@ -1,0 +1,36 @@
+  /*
+  loop
+  initialze variable
+  cond check
+  sts to be executed
+  counter
+ 
+  3types
+ 
+  d0 while
+  while
+  for
+ 
+  two types of loop
+ 
+  entry controlled
+  exit controlled
+  */
+  #include<stdio.h>
+  int main(){
+  char taste='g';
+  int emptyplate=10;
+  int sfull=0;
+  do
+  {
+          printf("\n Have a Bite of food\n");
+          emptyplate--;
+          printf("\n stomach full(1/0)\n");
+          scanf("%d",&sfull);
+          printf("How was the taste(g/b):");
+          scanf(" ");
+          taste =getchar();
+          printf("\n empty plate values:%d",emptyplate);
+  }while(((taste=='g')&&(emptyplate>=0)) || (sfull==0));
+  printf("\nprogram is end");
+  }

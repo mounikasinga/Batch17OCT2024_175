@@ -1,0 +1,14 @@
+   #include<stdio.h>
+   #include<stdlib.h>
+   int main(){
+   int i,j;
+   char buff1[1024];
+   char buff2[1024];
+   char res;
+   scanf("%d%d",&i,&j);
+   printf("i=%d j=%d\n",i,j);
+  sprintf(buff1,"i=%d j=%d\n",i,j);
+  sprintf("buff1 %s",buff1);
+  res=ato1("2002")+2;
+  printf(
+  }

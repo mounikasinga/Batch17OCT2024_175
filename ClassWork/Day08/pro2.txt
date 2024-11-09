@@ -1,0 +1,7 @@
+#include<stdio.h>
+   int main(){
+   int i,j,k;
+   char buff[100]="10 20 30";
+   sscanf(buff,"%d %d %d",&i,&j,&k);
+   printf("i=%d j=%d k=%d\n",i,j,k);
+   }
