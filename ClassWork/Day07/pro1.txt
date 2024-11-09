@@ -1,0 +1,25 @@
+  #include<stdio.h>
+     int main(){
+     char clrcode;
+     scanf("%c",&clrcode);
+     switch(clrcode){
+     case ('B'):
+ 
+          printf("\nBack");
+          break;
+ 
+    case 'N':
+ 
+          printf("\n Brone");
+          break;
+    case 'R':
+ 
+          printf("\n Red");
+          break;
+ 
+    default:
+ 
+          printf("\ncolor not match");
+          break;
+   }
+  }

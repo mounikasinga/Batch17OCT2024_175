@@ -1,0 +1,27 @@
+  #include<stdio.h>
+  int main(){
+  int slno;
+   int id;
+  char name[20];
+  char gender;
+  int pino;
+  char address[20];
+  int salary;
+  char desc;
+  slno=getchar();
+  id=getchar();
+  fgets(name,20,stdin);
+  gender=getchar();
+  pino=getchar();
+  fgets(address,20,stdin);
+  salary=getchar();
+  desc=getchar();
+  putchar(slno);
+  putchar(id);
+  puts(name);
+  putchar(gender);
+  putchar(pino);
+  puts(address);
+  putchar(salary);
+  putchar(desc);
+  }
