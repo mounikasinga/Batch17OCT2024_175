@@ -14,7 +14,7 @@ int main()
     
 }
 
-output:
+/*output:
 Enter the line  with delimiter:
 moun,nika
-ptr=mou
+ptr=mou*/
