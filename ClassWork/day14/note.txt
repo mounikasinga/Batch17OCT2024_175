@@ -1,0 +1,56 @@
+What is concurrency in programming--> can achieved in serveral ways.
+----------------------------------
+multithreading-->single process are created to perform different part of a task concurrency.Thread is same memory space
+multiprocessing-->separate process are created to handle different tasks concurrency.
+Asychronous -->Non-blocking i/o operations for concurrent processing.
+
+concurrency & parallelism
+-------------------------
+*concurrency-->dealing with multiple task at once or having multiple tasks in progess
+
+*parallelism-->multiple tasks truly simultaneously, typlically achevied by having multiple cpu cores.
+
+methods to achieve concurrency in c
+-----------------------------------
+*multithreading-->it's own have stack,register and program counter.
+*uing fork() -->
+*Asychronous
+*semaphoes
+*message queue
+
+thread--> is samllest unit of execute within the processor.
+
+process-->process context +code,data,and stack
+
+process context-->data register ,condition code, stack pointer,pc
+kernel-->vm structures,descripter table,break pointer.
+
+brk -->run-time heap ,read/write data
+pc-->read-only code/data
+
+process with multiple threads
+-----------------------------
+Each thread has it own logical control flow
+Each thread shares the same code,data and kernel context
+Each thread has it own thread id(TId)
+
+thread & Process
+----------------
+Each is has its own logic control flow
+Each can run concurrency
+Each is context switched
+
+thread share same resoureces and it is less price
+thread-->shares memory space with other threads in the process,faster,easier.
+process-->has it owm memory space,slower to create and manage,harder
+
+creating and recaping thread
+*pthread_create,pthread_join
+
+Determining your thread ID
+*pthread_self
+
+teminating threads
+*pthread_cancel,pthread_exit
+*exit[terminates all thread],return[terminates current thread]
+
