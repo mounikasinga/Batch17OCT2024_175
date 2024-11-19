@@ -1,20 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stack_v01.h>
+#include <stack.h>
 
 int bottom=-1;
 int top = -1;
 
 
-int push(int v)
+int push(int *max)
 {
-	if(top == MAX-1)
+	int i,v;
+	if(top == sizeof(max)-1)
 	{
 		printf("\nStack/Container is Full\n");
 		return 0;
 	}
-	top++;
-	stackCont[top]= v;
+	for(i=0;i<sizeof(max);i++)
+	{
+		printf("\npush the values in stack\n");
+		scanf("%d",&v);
+		top++;
+		stackCont[top]= v;
+	}
 	
 
 	return 0;
