@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stack_v01.h>
+#include <stack.h>
 
 
 
@@ -12,17 +12,22 @@ int main()
 	printf("\n%d element is deleted from the container/stack",v);
 	*/
 
-	push(10);
+	/*push(10);
 	push(11);
 	push(12);
 	push(13);
 	push(14);
-	push(15);
+	push(15);*/
+	int *max,n;
+	printf("Enter n values");
+	scanf("%d",&n);
+	max=(int *)malloc(n*sizeof(int));
+	push(max);
 	
 	
 	dispStack();
 
-	for(i=0;i<MAX;i++)
+	for(i=0;i<sizeof(max);i++)
 	{
 		v = pop();
 		printf("\n%d element is deleted from the container/stack",v);
