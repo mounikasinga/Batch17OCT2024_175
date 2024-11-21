@@ -35,6 +35,7 @@ int main() {
         printf("Key is not found\n");
     }
     free(a); 
-    return 0;
+
+        return 0;
 }
 
