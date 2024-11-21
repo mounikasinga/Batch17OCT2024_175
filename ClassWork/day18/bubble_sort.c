@@ -8,7 +8,12 @@ int bubbleSort(int *arr, int n) {
         for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) 
                 swap(&arr[j],&arr[j + 1]);
+<<<<<<< HEAD
                 swapped = 1; 
+=======
+                swapped = 1;
+            }
+>>>>>>> b8a75b192843b94d5c4376e8d98d695f5fd384f6
         }
         if (swapped == 0)
             break;
