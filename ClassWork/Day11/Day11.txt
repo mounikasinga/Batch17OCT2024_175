@@ -1,0 +1,121 @@
+
+1. Strings in C
+Definition of a String:
+•	A string is a collection of characters terminated by a null character ('\0').
+•	String in memory: Characters are stored in contiguous memory locations, with the last one being the null character to mark the end.
+Examples of String Initialization:
+char Name[6] = {'H', 'e', 'l', 'l', 'o', '\0'};   // Explicit null character
+char Name[] = "Hello";                           // Implicit null character
+Why Extra Size for Null?
+•	When declaring a string, you need to allocate space for the null terminator ('\0'), which marks the end of the string.
+String Declaration:
+char Name[21];     // Can store up to 20 characters + '\0'
+char Name[] = "Hello World";  // Automatically accounts for null
+Scanf for Strings:
+•	scanf("%s", Name); — No need for &, as Name is a pointer to the first character of the array.
+•	Caution: scanf with %s stops reading at whitespace (spaces, newlines).
+________________________________________
+2. Arrays and 2D Arrays
+1D Array for Strings:
+char Name[10];  // Can store a string of up to 9 characters + null terminator
+2D Arrays (Array of Strings):
+char Name[10][20];   // 10 strings, each can hold 19 characters + null terminator
+•	Important: For 2D arrays, columns are mandatory (size of each string), but rows can be dynamic.
+________________________________________
+3. Scanf and Null Terminator
+•	Null Character Importance: The null character ('\0') marks the end of a string. Without it, functions like printf() or strlen() will result in undefined behavior (e.g., accessing memory out of bounds).
+•	Stack Smashing Example: If you don't allocate space for the null terminator, you may write past the end of an array, causing segmentation faults.
+________________________________________
+4. String Functions from <string.h>
+strcpy() (Copy Strings):
+strcpy(destination, source);  // Copies the string from source to destination
+strcat() (Concatenate Strings):
+strcat(destination, source);  // Appends source to destination
+•	Warning: Ensure the destination has enough space to hold both strings.
+strcmp() (Compare Strings):
+int result = strcmp(s1, s2);  // Returns < 0, 0, > 0 based on comparison
+strlen() (String Length):
+int length = strlen(s);   // Returns the length of string excluding null character
+strtok() (Tokenize String):
+char *ptr = strtok(string, ",");  // Tokenizes string based on delimiter
+•	Usage: Often used to split strings (e.g., CSV parsing).
+•	Example: 
+•	char s1[400], Names[10][20];
+•	int count = 0;
+•	scanf("%[^\n]s", s1); // Capture full line
+•	ptr = strtok(s1, ",");
+•	while(ptr != NULL) {
+•	    strcpy(Names[count], ptr);   // Copy token to Names
+•	    count++;
+•	    ptr = strtok(NULL, ",");     // Continue tokenizing
+•	}
+________________________________________
+5. Structures
+Structure Definition:
+struct Square {
+    int length;
+    int breadth;
+};
+•	A structure groups different data types under a single name.
+•	Can hold heterogeneous data (different data types).
+Structure Initialization:
+struct Square sq1 = {10, 5};  // Initialize with values
+Accessing Structure Members:
+•	Use dot (.) operator for regular variables.
+sq1.length = 10;
+•	Use arrow (->) operator for structure pointers.
+struct Square *ptr = &sq1;
+ptr->length = 10;
+Passing Structures to Functions:
+void func(struct Square sq) {
+    // Function that accepts a structure as parameter
+}
+Typedef for Structures:
+•	typedef creates an alias for a structure type.
+typedef struct Square SQR;  // Now 'SQR' is an alias for 'struct Square'
+SQR sq1;  // Equivalent to struct Square sq1;
+________________________________________
+6. Unions
+•	Union: Allows multiple data types to share the same memory location. Only one member can be accessed at a time.
+•	Size of union: The size of the union is the size of its largest member.
+Union Definition:
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+•	Accessing members: Only one member can be active at any time. Writing to one member overwrites the others.
+________________________________________
+7. Memory Functions from <string.h>
+memset():
+•	Initializes a block of memory with a specific value.
+memset(ptr, value, size);
+memcpy():
+•	Copies a block of memory from source to destination.
+memcpy(destination, source, size);
+strchr():
+•	Finds the first occurrence of a character in a string.
+char *ptr = strchr(str, 'a');  // Returns pointer to first 'a'
+strrchr():
+•	Finds the last occurrence of a character in a string.
+char *ptr = strrchr(str, 'a');  // Returns pointer to last 'a'
+strstr():
+•	Finds the first occurrence of a substring in a string.
+char *ptr = strstr(str, "sub");  // Returns pointer to "sub" in str
+strsep():
+•	Splits a string into tokens based on a delimiter.
+char *token = strsep(&str, ",");
+strerror():
+•	Returns a string describing the error code.
+char *error_msg = strerror(errno);
+________________________________________
+8. Structure Padding in Memory
+•	Padding occurs when memory is added between structure members to align them according to the system's architecture.
+•	To minimize padding, group similar data types together (e.g., char types followed by int types).
+Structure Padding Example:
+struct Sample {
+    char a;   // 1 byte
+    int b;    // 4 bytes, padding added
+};
+•	In this example, there might be padding between a and b to align b on a 4-byte boundary, increasing the structure's size.
+
