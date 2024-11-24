@@ -1,0 +1,57 @@
+Sorting and Searching Algorithms:
+________________________________________
+1. Linear Search
+•	Description: A simple algorithm to search for a target element by checking each element of the array sequentially.
+•	Time Complexity: 
+o	Best: O(1) (element is found at the beginning)
+o	Worst: O(n) (element is not found or at the end)
+•	Syntax: 
+•	int linearSearch(int arr[], int n, int target);
+________________________________________
+2. Binary Search
+•	Description: A more efficient search algorithm that works on sorted arrays. It divides the search space in half until the target element is found.
+•	Time Complexity: 
+o	Best: O(1) (element is found in the middle)
+o	Worst: O(log n) (search space is halved each time)
+•	Syntax: 
+•	int binarySearch(int arr[], int n, int target);
+________________________________________
+3. Insertion Sort
+•	Description: Builds a sorted array one element at a time by repeatedly inserting the next element into its correct position.
+•	Time Complexity: 
+o	Best: O(n) (if array is already sorted)
+o	Worst: O(n²) (if array is in reverse order)
+•	Syntax: 
+•	void insertionSort(int arr[], int n);
+________________________________________
+4. Selection Sort
+•	Description: Divides the array into sorted and unsorted parts. It repeatedly selects the smallest (or largest) element from the unsorted part and swaps it with the leftmost unsorted element.
+•	Time Complexity: 
+o	Best: O(n²)
+o	Worst: O(n²)
+•	Syntax: 
+•	void selectionSort(int arr[], int n);
+________________________________________
+5. Bubble Sort
+•	Description: Compares adjacent elements and swaps them if they are in the wrong order. This process is repeated until no swaps are needed.
+•	Time Complexity: 
+o	Best: O(n) (if array is already sorted)
+o	Worst: O(n²)
+•	Syntax: 
+•	void bubbleSort(int arr[], int n);
+________________________________________
+Summary of Time Complexities
+Algorithm	Best Case	Average Case	Worst Case
+Linear Search	O(1)	O(n)			O(n)
+Binary Search	O(1)	O(log n)		O(log n)
+Insertion Sort	O(n)	O(n²)			O(n²)
+Selection Sort	O(n²)	O(n²)			O(n²)
+Bubble Sort		O(n)	O(n²)			O(n²)
+________________________________________
+Key Points:
+•	Linear Search works for unsorted arrays but is inefficient for large datasets.
+•	Binary Search is very efficient (O(log n)) but requires the array to be sorted.
+•	Insertion Sort is efficient for small or nearly sorted arrays but has a worst-case complexity of O(n²).
+•	Selection Sort has a consistent time complexity of O(n²), which makes it inefficient for large datasets.
+•	Bubble Sort is simple but not efficient for large arrays (O(n²) worst-case time).
+
