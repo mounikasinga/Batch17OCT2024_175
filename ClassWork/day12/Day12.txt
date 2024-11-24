@@ -1,0 +1,129 @@
+1. Single Character vs String Declarations
+•	Single Character Declaration:
+o	When you declare a single character using an array, the size is 1.
+o	Example: 
+o	char a[] = {'2'}; // size of a is 1 (just one character)
+•	String Declaration:
+o	A string is an array of characters ending with a null character ('\0'). 
+So, the size of a string is one more than the number of characters to account for the null character.
+o	Example: 
+o	char a[] = {"2"};  // size of a is 2 (including '\0' at the end)
+________________________________________
+2. Named vs Unnamed Address in Pointers
+•	Named Address (via Stack Memory):
+o	When you define a structure in main and use it directly, the address is automatically allocated in stack memory.
+o	Example: 
+o	EMP e1;        // Local variable in stack memory
+o	EMP *e = &e1;  // e points to the address of e1
+•	Unnamed Address (via Dynamic Memory Allocation):
+o	If you allocate memory dynamically (e.g., using malloc), the memory is allocated in the 
+heap and no specific address is provided (it's handled by the memory manager).
+o	Example: 
+o	EMP *e = (EMP *)malloc(sizeof(EMP));  // Dynamically allocated memory in the heap
+________________________________________
+3. Storing Strings in Structures Using strtok()
+•	Using strtok() to Split Strings: 
+o	You can use strtok() to split a string into tokens (substrings) based on a delimiter. These tokens can be stored in structure fields.
+o	Example: 
+o	char str[] = "John,25,Male";
+o	char *ptr = strtok(str, ",");  // Split at comma
+o	EMP e1;
+o	strcpy(e1.name, ptr);         // Store first token in structure
+________________________________________
+4. Dynamic Memory Allocation for Structures
+•	Static Allocation (via Stack):
+o	Declare a structure variable normally: 
+o	EMP e1;
+•	Dynamic Allocation (via Heap):
+o	Use malloc() to dynamically allocate memory for a structure: 
+o	EMP *e = (EMP *)malloc(sizeof(EMP));  // Allocate memory for one employee structure
+•	Structure Definition (using typedef for easier access):
+•	typedef struct Employee {
+•	    int id;
+•	    int sal;
+•	    int phno;
+•	    char name[20];
+•	    char gender;
+•	} EMP;
+________________________________________
+5. Example of Dynamic Memory Allocation and Using Structures
+Single Record Allocation:
+•	When you dynamically allocate memory for a structure and fill in its fields: 
+•	int main() {
+•	    EMP *e = NULL;
+•	    e = (EMP *)malloc(sizeof(EMP));  // Allocate memory for one EMP structure
+•	    if (e == NULL) {
+•	        printf("Memory allocation failed!\n");
+•	        return 1;  // Exit if memory allocation fails
+•	    }
+•	
+•	    // Input data
+•	    scanf("%d %d %d %s %c", &e->id, &e->sal, &e->phno, e->name, &e->gender);
+•	    
+•	    // Output data
+•	    printf("\nId: %d", e->id);
+•	    printf("\nName: %s", e->name);
+•	    printf("\nSalary: %d", e->sal);
+•	
+•	    free(e);  // Free dynamically allocated memory
+•	    return 0;
+•	}
+Multiple Records Allocation:
+•	If you want to store multiple records dynamically, allocate memory for an array of structures:
+•	int main() {
+•	    EMP *e = NULL;
+•	    int n;
+•	    printf("Enter the number of employees: ");
+•	    scanf("%d", &n);
+•	
+•	    e = (EMP *)malloc(n * sizeof(EMP));  // Allocate memory for 'n' EMP structures
+•	    if (e == NULL) {
+•	        printf("Memory allocation failed!\n");
+•	        return 1;
+•	    }
+•	
+•	    EMP *temp = e;  // Store the base address
+•	    // Input data for multiple records
+•	    for (int i = 0; i < n; i++) {
+•	        scanf("%d %d %d %s %c", &e->id, &e->sal, &e->phno, e->name, &e->gender);
+•	        e++;
+•	    }
+•	    
+•	    e = temp;  // Reset pointer back to base address
+•	    // Output data for multiple records
+•	    for (int i = 0; i < n; i++) {
+•	        printf("\nId: %d", e->id);
+•	        printf("\nName: %s", e->name);
+•	        printf("\nSalary: %d", e->sal);
+•	        e++;
+•	    }
+•	
+•	    free(temp);  // Free the dynamically allocated memory
+•	    return 0;
+•	}
+•	Important Note: When using malloc() for multiple records, always reset the pointer to the base address before freeing it to avoid memory errors.
+________________________________________
+6. Common Errors and Memory Management
+Freeing Dynamically Allocated Memory:
+•	When freeing dynamically allocated memory, you must always use the original pointer (before any increments or pointer arithmetic).
+•	Error: free() on a shifted pointer (e.g., after incrementing the pointer inside a loop) leads to invalid memory access.
+•	Correct way: 
+•	free(temp);  // Always free the base pointer, not the shifted pointer
+Segmentation Fault (Core Dump):
+•	This occurs if you try to access or free memory incorrectly (e.g., dereferencing a NULL pointer or using an invalid pointer after modifying it).
+________________________________________
+7. Pointer Scanning and & Operator in Structures
+•	Pointer Usage: In general, when you use scanf with pointers, you don't need to use the & operator because the pointer itself holds the address.
+•	int *ptr = &x;  // Use ptr directly in scanf
+•	scanf("%d", ptr);
+•	Structure Pointer Scanning: When using structures, you pass the address of the structure (pointer to the structure) and need to use the & operator to get the address of each field.
+•	scanf("%d %d %d %s %c", &e->id, &e->sal, &e->phno, e->name, &e->gender);
+________________________________________
+8. Dynamic Memory Allocation Recap
+•	Single Record:
+•	EMP *e = (EMP *)malloc(sizeof(EMP));  // Allocate memory for one record
+•	Multiple Records:
+•	EMP *e = (EMP *)malloc(n * sizeof(EMP));  // Allocate memory for 'n' records
+•	Freeing Memory: Always free the memory using the original pointer, before any pointer shifts or increments.
+•	free(e);  // Correct: free the base address pointer
+
