@@ -1,0 +1,63 @@
+Data Structures - Linked Lists, Self-Referential Pointers, and More
+Self-Referential Pointers (SRP) in C:
+A Self-Referential Pointer occurs when a structure contains a pointer to an object of the same type as the structure itself. This type of pointer is useful for building linked data structures like linked lists.
+Key Concepts:
+1.	Self-Referential Pointer:
+	In C, when a structure contains a pointer to itself, it is called a self-referential pointer.
+	Example: A node in a linked list, which points to another node of the same structure.
+2.	Nodes in Linked Lists:
+	Node Creation (Static Memory Allocation): 
+	Home h1, h2, h3;
+	Assigning Values to Nodes: 
+	h1.value = 10; h2.value = 20; h3.value = 30;
+	h1.ptr = NULL; h2.ptr = NULL; h3.ptr = NULL;
+	Creating Relationships (Pointers to Next Node): 
+	h1.ptr = &h2;
+	h2.ptr = &h3;
+3.	Traversing the Linked List: To traverse through the list:
+4.	struct Home *ptr1 = &h1;
+5.	printf("%d", ptr1->value);  // 10
+6.	ptr1 = ptr1->ptr;           // Move to next node
+7.	printf("%d", ptr1->value);  // 20
+8.	ptr1 = ptr1->ptr;           // Move to next node
+9.	printf("%d", ptr1->value);  // 30
+________________________________________
+Linked List Operations in C:
+1.	Inserting a Node in the Middle: To insert a new node in the middle of the list, you modify the pointers accordingly.
+2.	h4.val = 40;
+3.	h4.ptr = NULL;
+4.	ptr1 = &h1;
+5.	ptr1->ptr = &h4;    // Insert h4 after h1
+6.	ptr1 = &h4;
+7.	ptr1->ptr = &h2;    // Now h4 points to h2
+8.	Appending a Node at the End: To append a node at the end of the list:
+9.	h5.val = 50;
+10.	h5.ptr = NULL;
+11.	ptr1 = &h1;
+12.	while (ptr1->ptr != NULL) {
+13.	    ptr1 = ptr1->ptr;
+14.	}
+15.	ptr1->ptr = &h5;    // Append h5 to the end of the list
+16.	Adding a Node at the Start: To add a node at the beginning:
+17.	h7.val = 70;
+18.	h7.ptr = NULL;
+19.	h7.ptr = &h1;        // h7 points to the first node
+20.	ptr1 = &h7;          // Make h7 the head of the list
+21.	Appending a Node in an Empty List: If the list is empty, the new node should become the first node.
+22.	if (head == NULL) {
+23.	    head = nn;    // If list is empty, make nn the head
+24.	}
+________________________________________
+Types of Linked Lists:
+1.	Doubly Linked List (DLL):
+	Each node contains two pointers: one pointing to the next node and another pointing to the previous node.
+	Useful for bi-directional traversal.
+2.	Circular Linked List:
+	The last node points back to the first node, forming a circle.
+	It can be singly or doubly circular, and the traversal continues in a loop.
+3.	Circular Doubly Linked List:
+	The last node points to the first node and vice versa, making it suitable for both forward and backward traversal.
+________________________________________
+In Circular Linked Lists:
+•	For a Single Node: In a circular linked list with only one node, both the next and prev pointers of the node will point to itself.
+
