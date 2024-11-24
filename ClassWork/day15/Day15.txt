@@ -1,0 +1,18 @@
+Command Line Arguments
+In C programming, the main function can accept command line arguments. These arguments are passed to the program when it is executed and allow users to provide input dynamically.
+Explanation:
+•	argc: This is the argument count, which stores the number of arguments passed to the program, including the name of the program itself.
+•	argv[]: This is an array of strings (character pointers). It holds the arguments passed to the program.
+•	argc will always be at least 1 because the first element of argv[] is the name of the program.
+Basic Syntax:
+int main(int argc, char *argv[])
+•	argc: Number of arguments.
+•	argv[]: An array of strings containing the arguments.
+Example of Command Line Argument Usage:
+./program arg1 arg2 arg3
+•	argc will be 4 (because argv[0] is the program name and there are three arguments: arg1, arg2, arg3).
+•	argv[0] = ./program
+•	argv[1] = arg1
+•	argv[2] = arg2
+•	argv[3] = arg3
+
