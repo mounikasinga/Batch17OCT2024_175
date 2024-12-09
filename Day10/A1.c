@@ -44,4 +44,4 @@ int main() {
     find_prime(n);
     return 0;
 }
-https://github.com/mehak0205/DND-client-server-implementation/blob/main/HDR/server_header.h
+
